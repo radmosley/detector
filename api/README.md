@@ -1,0 +1,1 @@
+sudo docker-compose run django django-admin startproject api .
