@@ -4,3 +4,5 @@
 /.ebextensions
 **/.env-example
 cloud_sql_proxy
+**.env
+app.yaml
