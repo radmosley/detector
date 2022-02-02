@@ -1,8 +1,3 @@
-/data
-*.pyc
-/**/__pycache__
-/.ebextensions
-**/.env-example
-cloud_sql_proxy
-**.env
-app.yaml
+.env
+node-modules
+/artifacts/

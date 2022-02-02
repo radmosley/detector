@@ -1,20 +1,42 @@
-version: "3.3"
-   
+version: "3"
+
 services:
   db:
     image: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
+    container_name: db
+    hostname: db
+    restart: always
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  django:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+      POSTGRES_PASSWORD: devrocks
+      POSTGRES_USER: dev01
+      POSTGRES_DB: vueexppg
     ports:
-      - "8000:8000"
+      - "5432:5432"
+    volumes:
+      - ./artifacts:/var/lib/postgresql/data:Z
+
+  api:
+    image: node:latest
+    container_name: api
+    hostname: api
+    build:
+      context: ./backend
+    ports:
+      - "52791:3000"
+    environment:
+      "PUBLIC_PORT": "52791"
+    links:
+      - db
     depends_on:
       - db
+  vueexppg.frontend:
+    image: vueexppg/frontend
+    container_name: vueexppg_frontend
+    hostname: vueexppg.frontend
+    build:
+      context: ./frontend
+    ports:
+      - "52792:80"
+
+volumes:
+  db:
