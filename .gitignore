@@ -1,3 +1,6 @@
-.env
-node-modules
 /artifacts/
+/backend/api/__pycache__/
+/data/
+.env
+Dockerfile
+/backend/api/senator/migrations

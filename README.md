@@ -1,26 +1,41 @@
-Docker Containers:
+**Project Directory:**
 
-- Vue Frontend
-- Express API
-- Postgres DB
+- backend
+  - requirements.txt
+- frontend
+- .env
+- docker-compose.yml
+- **django-rest framework:**
+  Create backend django project:
+- cd backend
+- `django-admin startproject [project name]`
+- `cd [project name]`
+- `django-admin startapp [app name]`
+- add environment files
+  - create .env file and add the variables included in the .env-example file
+- Building api endpoints:
+  - model
+  - url
+  - router
+  - view
+  - endpoints
+  - makemigrations
+  - migrate
 
-Project Initial Configuration
+**vue**
+Create Vue project:
 
-- `docker-compose up build .`
+- cd frontend
+- `vue create [project name]`
+- Optionally:
+  - to add storybook`npx init`
+    Start containers:
+    `docker-compose up`
+- building components
 
-Project Development:
+**Postgres**
+configure
 
-- git pull origin main
-- create .env file in root of project
-- docker-compose up build .
-- git checkout -b ratio-0000
-- git add .
-- git commit -m "your message"
-- git push -u origin ratio-0000
-- create pull request against development branch
+docker run -d --name container-name pyhton3 manage.py migrate
 
-Gitflow
-
-- Main (Live)
-- Development (Testing)
-- Ratio (Feature Development)
+gitworkflow
