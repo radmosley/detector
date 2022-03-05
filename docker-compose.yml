@@ -11,9 +11,9 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
   web:
     image: radbydesign/django-api:v0.4
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python manage.py runserver 0.0.0.0:8000'
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python manage.py runserver 0.0.0.0:8000 && python manage.py migrate'
     volumes:
-      - ./backend:/code
+      - ./backend:/app
     ports:
       - "8000:8000"
     environment:
@@ -22,10 +22,10 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
-  vue:
-    image: radbydesign/vue:v0.2
-    volumes:
-      - "./frontend/:/code"
-      - "/code/node_modules"
-    ports:
-      - "8081:8080"
+  # vue:
+  #   image: radbydesign/vue:v0.2
+  #   volumes:
+  #     - "./frontend/:/code"
+  #     - "/code/node_modules"
+  #   ports:
+  #     - "8081:8080"

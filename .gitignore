@@ -1,6 +1,12 @@
 /artifacts/
-/backend/api/__pycache__/
+/*/*/__pycache__/
+/*/*/*/__pycache__/
+/*/*/*/migrations/
 /data/
 .env
 Dockerfile
 /backend/api/senator/migrations
+README.md
+TODO
+test_data.json
+artifacts
