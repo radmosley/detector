@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'import_export',
     'api.senator',
+    'api.user',
 ]
 
 MIDDLEWARE = [
