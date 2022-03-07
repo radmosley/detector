@@ -1,7 +1,5 @@
 <template>
-  <section>
-    <p>Content Area</p>
-  </section>
+  <h2 class="title is-3">content</h2>
 </template>
 
 <script>

@@ -5,8 +5,19 @@ from django.db import models
 
 # Create your models here.
 class Senator(models.Model):
+    senate_id = models.CharField(max_length=250)
+    title = models.CharField(max_length=250)
+    party = models.CharField(max_length=5)
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
+    # state = models.CharField(max_length=250)
+    # in_office = models.BooleanField()
+    # website = models.CharField(max_length=250)
+    # contact_form = models.CharField(max_length=250 default=null)
+    # twitter = models.CharField(max_length=250)
+    # facebook = models.CharField(max_length=250)
+    # youtube = models.CharField(max_length=250)
+    # next_election = models.CharField(max_length=250)
     # contact_form = models.URLField()
     # website = models.URLField()
     # state = models.CharField()
