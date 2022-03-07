@@ -1,11 +1,21 @@
 <template>
   <div id="app">
-    <Menu></Menu>
-    <Member></Member>
-    <!-- <router-view>
+    <div>
+      <div class="row content">
+        <Menu></Menu>
+        <Member></Member>
+      </div>
+
+      <footer>
+        <p>Footer Text</p>
+      </footer>
+      <!-- <Menu></Menu>
+    <Member></Member> -->
+      <!-- <router-view>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </router-view> -->
+    </div>
   </div>
 </template>
 
@@ -18,7 +28,10 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0;
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
 }
 </style>

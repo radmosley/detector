@@ -1,5 +1,7 @@
 <template>
-  <div>First Name and Last name</div>
+  <section>
+    <p>Content Area</p>
+  </section>
 </template>
 
 <script>
