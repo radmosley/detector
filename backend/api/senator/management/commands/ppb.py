@@ -7,22 +7,18 @@ class Command(BaseCommand):
     help = 'Displays current time'
 
     def handle(self, *args, **kwargs):
-        #load json
         with open('test_data.json', 'r') as f:
+            print("Reading json")
             data = json.load(f)
         for x in data['results'][0]['members']:
+            print("loading member")
             new_member = x['first_name'] + " " + x['last_name']
-        # load model
-            senator = Senator(
+        # # load model
+            senator = Senator.objects.get_or_create(
                 senate_id = x['id'],
                 title = x['title'],
                 party = x['party'],
                 first_name = x['first_name'],
                 last_name = x['last_name'],
             )
-            senator.save()
-            print(new_member + " complete")
-            # print(x['id'])
-        # time = timezone.now().strftime('%X')
-        # Console log
-        # self.stdout.write("It's now %s" % time)
+            print("Complete")
