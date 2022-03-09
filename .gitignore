@@ -3,10 +3,9 @@
 /*/*/*/__pycache__/
 /*/*/*/migrations/
 /data/
-.env
+**.env
 Dockerfile
 /backend/api/senator/migrations
 README.md
 TODO
 test_data.json
-artifacts
