@@ -8,7 +8,7 @@ class Senator(models.Model):
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return "Sen" + self.first_name + " " + self.last_name
 
 class User(AbstractUser):
     email = models.EmailField(max_length=250, unique=True)
@@ -19,3 +19,5 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+    def __str__(self):
+        return self.email
