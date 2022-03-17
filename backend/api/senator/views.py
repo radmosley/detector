@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from .authentication import generate_access_token
+from .authentication import generate_access_token, JWTAuthentication
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import exceptions
 from .serializers import UserSerializer, SenatorSerializer
 from .models import Senator, User
-# Create your views here.
-# Senator view
-# @api_view(['GET'])
-# def Senator(request):
-#     senators = Senator.objects.all()
-#     return Response(senators)
+
 @api_view(['POST'])
 def Register(request):
     data = request.data
@@ -44,11 +41,31 @@ def Login(request):
     }
     return response
 
+@api_view(['POST'])
+def Logout(_):
+    response = Response()
+    response.delete_cookie(key='JWT')
+    response.data = {
+        'message': 'Successfully Logout'
+    }
+
+    return response
+class AuthenticatedUser(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes= [IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response({
+            'data': serializer.data
+        })
+    # return Response
+
 @api_view(['GET'])
 def Users(request):
     users = User.objects.all()
     serializers = UserSerializer(users, many=True)
-    return Response(serializers.data,)
+    return Response(serializers.data)
 
 @api_view(['GET'])
 def Senators(request):
