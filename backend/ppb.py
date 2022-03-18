@@ -2,27 +2,32 @@ import os
 import json
 import sys
 import django 
-from api.senator.models import Senator
+from api.senate.models import Senator
 
 django.setup()
 
-sys.path.append('/Users/ronniemosley/SynologyDrive/projects/code/detector/backend/api/senator')
+sys.path.append('/Users/ronniemosley/SynologyDrive/projects/code/detector/backend/api/senate')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'api.settings'
 def run():
     with open('test_data.json', 'r') as f:
         print("Reading json")
         data = json.load(f)
-        #print(data['results'][0]['members'])
-        for x in data['results'][0]['members']:
-            #load model 
-            senator = Senator({
-                'senate_id': data['id'],
-                'first_name': data['first_name'],
-                'last_name': data['last_name'],
-                })
-            senator.save()
-            print("Senator Complete")
+    for member in data['results'][0]['members']:
+        print("loading member")
+        # new_member = member['first_name'] + " " + member['last_name']
+    # # load model
+        try:
+            obj = Senator.objects.get(senate_id=member['id'])
+        except Senator.DoesNotEmemberist:
+            senator = Senator.objects.get_or_create(
+                senate_id = member['id'],
+                title = member['title'],
+                party = member['party'],
+                first_name = member['first_name'],
+                last_name = member['last_name'],
+            )
+            print("Complete")
         return
 if __name__ == "__main__":
     run()

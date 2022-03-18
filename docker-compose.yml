@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 
 services:
   db:
@@ -12,12 +12,12 @@ services:
     ports:
       - 5432:5432
   web:
-    image: radbydesign/django-api:v0.4
+    image: radbydesign/django-api:v0.5
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python manage.py runserver 0.0.0.0:8000 && python manage.py migrate'
     volumes:
       - ./backend:/app
     ports:
-      - "8000:8000"
+      - '8000:8000'
     environment:
       - POSTGRES_NAME=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
@@ -25,9 +25,10 @@ services:
     depends_on:
       - db
   vue:
-    image: radbydesign/vue:v0.2
+    image: radbydesign/vue:v0.3
     volumes:
-      - "./frontend/:/app"
-      - "/app/node_modules"
+      - './frontend/:/usr/src/app'
+      - '/app/node_modules'
+    command: "sh -c 'yarn serve'"
     ports:
-      - "8081:8080"
+      - '8081:8080'

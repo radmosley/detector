@@ -1,18 +1,19 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-// import Menu from "../components/main_menu.vue";
-// import Member from "../components/member_icon.vue";
-// import Home from "../views/home.vue";
-
-Vue.use(VueRouter);
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import Member from '../components/Member.vue';
 
 const routes = [
   {
-    // path: "/",
-    // component: Menu,
-    // Member,
+    path: '/',
+    name: 'home',
+    component: HomeView,
+    Member,
   },
-  // { path: "/senator/:id", component: Member },
 ];
 
-export default routes;
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+});
+
+export default router;
