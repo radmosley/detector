@@ -1,12 +1,14 @@
 <template>
-  <div>Hello</div>
-  <Member></Member>
+  <NavBar></NavBar>
+  <ContentArea></ContentArea>
 </template>
 <script>
-  import Member from '@/components/Member.vue';
+  import NavBar from '@/components/NavBar.vue';
+  import ContentArea from '@/components/ContentArea.vue';
+
   export default {
     name: 'App',
-    components: { Member },
+    components: { NavBar, ContentArea },
   };
 </script>
 <style></style>

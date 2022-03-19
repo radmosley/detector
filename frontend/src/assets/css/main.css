@@ -1,0 +1,20 @@
+@import url(reset.css);
+@import url(font/heading.css);
+@import url(font/body.css);
+@import url(nav/navbar.css);
+
+body {
+  background: #fff;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font: #707070;
+}
+
+/* @media screen and (max-width: 600px) {
+  body {
+    background: red;
+  }
+} */
