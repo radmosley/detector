@@ -2,18 +2,59 @@
 @import url(font/heading.css);
 @import url(font/body.css);
 @import url(nav/navbar.css);
+/*
+Body font
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body {
+  font-family: 'Open Sans', 'san-serif';
   background: #fff;
 }
+
 a {
   text-decoration: none;
 }
-h1 {
-  font: #707070;
+
+.nav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 1.5rem 0.3rem 1.5rem;
 }
 
-/* @media screen and (max-width: 600px) {
+/* Site Branding */
+@media screen and (min-width: 300px) {
+  nav {
+    width: 100%;
+    background: #f7f7f7;
+    top: 0;
+  }
+  .branding > h1 > a,
+  a:active,
+  a:visited {
+    color: #707070;
+    font-size: 1.75rem;
+  }
+  h1 {
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  body {
+    font-size: 1em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    background: blue;
+  }
+}
+
+/* @media screen and (min-width: 600px) {
   body {
     background: red;
   }

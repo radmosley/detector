@@ -1,14 +1,11 @@
 <template>
-  <NavBar></NavBar>
-  <ContentArea></ContentArea>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 <script>
-  import NavBar from '@/components/NavBar.vue';
-  import ContentArea from '@/components/ContentArea.vue';
-
   export default {
     name: 'App',
-    components: { NavBar, ContentArea },
   };
 </script>
 <style></style>
